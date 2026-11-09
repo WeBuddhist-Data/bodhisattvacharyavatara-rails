@@ -17,24 +17,45 @@ Authoritative vault conventions (commentary IDs, addressing, language rules): [`
 - **Verse ID** — block ID without caret, e.g. `1-1`, `6-33`. Chapter-verse format; numbers are not zero-padded.
 - **Sanskrit root text** — `1-SOURCES/Text/BCAV08_SH_sk.md`
 - **Tibetan root text** — `1-SOURCES/Translations/bo-བློ་ལྡན་ཤེས་རབ།.md`
-- **Commentary files** — all files under `1-SOURCES/Commentaries/Transcluded/`. The root text verses are already transcluded into every commentary file in this folder. Use the `registered_id` from the vault annex to attribute every claim. Tier order (lead → follow): `prajnakaramati` → `kunpal` → `mipham` → `khenpo-zhengah` → `gyaltsab` → other Tibetan → Chinese.
-- **Zhenga mchan-'grel** — `1-SOURCES/Commentaries/Transcluded/BCAC19_KS_bo.md` (registered_id: `khenpo-zhengah`). Sole source for the མཆན་འགྲེལ། section.
+- **Commentary files** — all `.md` files directly under `1-SOURCES/Commentaries/formated_commentary/` (the **formated_commentary** folder; ignore `.bak` files and other folders such as `Transcluded/`, `Raw/`, `New Raw Data/`). Root-text verses are transcluded into each file. File names are not stable (some carry a ` 1` suffix, `_segmented`, `_tagged`), so **discover files with a glob** (`1-SOURCES/Commentaries/formated_commentary/*.md`) rather than hard-coding names, and attribute each file by its `book_id`/author code using the table below. These files do not declare `registered_id` in frontmatter; use the ID from this table.
+- **Zhenga mchan-'grel** — the `BCAC19_KS_bo` file in the same folder (currently `1-SOURCES/Commentaries/formated_commentary/BCAC19_KS_bo 1.md`; author Gzhan phan Byams pa'i Go cha / Khenpo Zhenga; registered_id: `khenpo-zhengah`). Sole source for the མཆན་འགྲེལ། section.
+
+### Commentary files → registered_id → tier order
+
+| Code in file name / `book_id` | Author | `registered_id` | Order |
+| --- | --- | --- | --- |
+| `BCAC10_PKM` | Prajñākaramati | `prajnakaramati` | 1 |
+| `BCAC19_KKP` | Khenpo Kunzang Palden | `kunpal` | 2 |
+| `BCAC19_KS` | Khenpo Zhenga (mchan-'grel) | `khenpo-zhengah` | 3 (also feeds མཆན་འགྲེལ།) |
+| `BCAC14_NTS` | Ngulchu Thogme Sangpo | `ngulchu-thogmed` | 4 |
+| `BCAC20_NKW` | Khenpo Kunga Wangchuk | `khenpo-kunga` | 5 |
+| `BCAC19_MKTP` | Mugsung Karma Tsepal | `tsechenrab` | 6 |
+| `BCAC12_ST` | Sönam Tsemo | `sonam-tsemo` | 7 |
+| `BCAC13_KTB` | Attributed to Kunkhyen Tsona (narrative / stories) | `kunkhyen-tsona` | 8 |
+
+Mipham and Gyaltsab are **not** in this folder; skip them. If an unlisted file appears, read its frontmatter, add it at the end of the tier order, and report that its ID is unregistered. Tier order (lead → follow): the Order column above.
 
 ---
 
 ## How to locate a verse's commentary passage
 
-Every commentary file in `1-SOURCES/Commentaries/Transcluded/` has the root text verses transcluded into it using Obsidian syntax. Normally the commentary on a verse sits between that verse's transclusion and the next verse's transclusion. However, some commentaries group several consecutive verse transclusions together and place their explanatory prose **after the final transclusion in the run** — covering all grouped verses at once.
+Every file in `1-SOURCES/Commentaries/formated_commentary/` has root-text verses transcluded into it with Obsidian syntax. Commentary on a verse normally sits between that verse's transclusion and the next one; some files group several consecutive transclusions and place the prose **after the last transclusion in the run**, covering all grouped verses.
+
+**File-specific quirks (verified against the current files):**
+
+- **Transclusion path varies.** Either the full form `![[1-SOURCES/Translations/bo-བློ་ལྡན་ཤེས་རབ།.md#^1-1]]` (ST, NTS, KS, MKTP, KTB) or the short form `![[bo-བློ་ལྡན་ཤེས་རབ།#^1-1]]` (PKM, KKP, NKW). Match on the fragment `#^<verse-id>]]` only.
+- **NKW (`BCAC20_NKW`)** has a few preamble transclusions with Roman-numeral IDs (`#^I-1`, `#^I-2`, `#^I-3`) before chapter 1. They are not verse `1-1`; for chapter 1 use the `#^1-n` transclusions. Heading lines in NKW carry IDs ending in `-0` (e.g. `^1-1-0`); these are section headings, not verse blocks, and may contain the text `1-1` — do not mistake them for the verse.
+- **KTB (`BCAC13_KTB`)** is sparse: only ~37 verses are transcluded, and each is followed by a `>` quote of the verse and then narrative prose. Many verses have no passage at all — omit it for those. Its quote blocks carry their own odd block IDs (e.g. `^11-1`, `^21-1`); never cite those as the verse. KTB is chiefly a source for སྒྲུང་འགྲེལ།.
+- **Prose block IDs** (`^…` at the end of a paragraph) exist in all files but follow each file's own numbering (KS uses `^1-1`, `^1-2`…; NKW uses `^2-1`, `^2-2`… and section IDs). Cite the ID actually stamped on the paragraph you used; never infer it from the verse ID.
+- A file with no transclusion of the verse simply has no passage — skip it and leave its `registered_id` out of `sources.commentaries`.
 
 **Step-by-step:**
 
-1. `grep -n "!\\[\\[.*#\\^<verse-id>\\]\\]"` in each commentary file to find the transclusion line, e.g. `![[bo-བློ་ལྡན་ཤེས་རབ།.md#^1-1]]`.
-2. Note the line number of that transclusion (`LINE_START`) and the line number of the next verse transclusion (`LINE_END`).
-3. Inspect the span `LINE_START` to `LINE_END − 1`. If it contains **only transclusion lines and blank lines** (no prose), the commentary is grouped: `LINE_END` is itself the start of the next consecutive transclusion. Continue scanning forward through all consecutive transclusion lines until you reach the first line of actual prose. That prose block — running from the first prose line to the line before the next non-consecutive verse transclusion — is the commentary covering the target verse (and all other verses in the consecutive run).
-4. Read that prose span. Extract all relevant material — explanations, stories, metaphors, quotations, term glosses — from it.
-5. Repeat for every commentary file in `1-SOURCES/Commentaries/Transcluded/`.
-
-This targeted read replaces any need to scan full commentary files. Apply it identically to `BCAC19_KS_bo.md` for the མཆན་འགྲེལ། section.
+1. `grep -n '#\^<verse-id>\]\]'` in each commentary file to find the transclusion line (`LINE_START`).
+2. Find the next transclusion of any verse (`LINE_END`).
+3. If `LINE_START`..`LINE_END−1` contains only transclusion/quote lines and blanks (no prose), the commentary is grouped: continue scanning forward through consecutive transclusions to the first prose line; that prose, up to the next non-consecutive transclusion, is the span for the target verse.
+4. Read only that span. Extract explanations, stories, metaphors, quotations, term glosses.
+5. Repeat for every file in `1-SOURCES/Commentaries/formated_commentary/`, including the KS file for the མཆན་འགྲེལ། section.
 
 ## Output
 
@@ -62,7 +83,7 @@ creator: Tigerboy
 sources:
   sanskrit: "1-SOURCES/Text/BCAV08_SH_sk.md"
   tibetan: "1-SOURCES/Translations/bo-བློ་ལྡན་ཤེས་རབ།.md"
-  mchan_grel: "1-SOURCES/Commentaries/Transcluded/BCAC19_KS_bo.md"
+  mchan_grel: "1-SOURCES/Commentaries/formated_commentary/BCAC19_KS_bo 1.md"
   commentaries: [<id>, <id>, …]
 status: draft
 ---
@@ -85,7 +106,7 @@ status: draft
 
 <Verbatim annotation text from Khenpo Zhenga's mchan-'grel for this verse. If the commentary interleaves its annotation with the root words, reproduce the full annotated passage. Present as a single prose block or as the annotated pairs (root word → gloss) as the source gives them.>
 
-→ ([[1-SOURCES/Commentaries/Transcluded/BCAC19_KS_bo.md#^<block-id>]])
+→ ([[1-SOURCES/Commentaries/formated_commentary/BCAC19_KS_bo 1.md#^<block-id>]])
 
 ---
 
@@ -216,7 +237,7 @@ The བསྡུས་དོན། section is never drafted directly by the mode
 
 1. **Transclusions, not copies.** ལེགས་སྦྱར། and བོད་ཡིག use `![[…#^<verse-id>]]` only. Never paste the verse text as if it were the authoritative source. A readable `>` quote-block may follow the transclusion for convenience, but the transclusion is the citation.
 2. **མཆན་འགྲེལ། from Zhenga only.** This section draws exclusively from `khenpo-zhengah`. Do not blend other commentaries into it. Reproduce Zhenga's interlinear gloss prose only. If the mchan-'grel span contains scriptural quotations — text introduced by a phrase of the form "[scripture name] ལས།" followed by a quotation block — do **not** reproduce those here. Extract them to ལུང། (step 13) instead.
-3. **དོན་འགྲེལ། is ordered by tier.** Lead with `prajnakaramati` (if it addresses the verse), then Tibetan scholarly commentaries in the tier order given above, then supplementary, then Chinese. One subsection per commentary per voice.
+3. **དོན་འགྲེལ། is ordered by tier.** Lead with `prajnakaramati` (if it addresses the verse), then Tibetan scholarly commentaries in the tier order in the table above. One subsection per commentary per voice.
 4. **སྒྲུང་འགྲེལ། is a standalone section.** Populated from attested narratives only. If no commentary attaches a story or parable to this verse, omit the section entirely — do not write an empty heading or a placeholder.
 5. **དཔེ། is a standalone section.** Populated from attested metaphors and examples only. If no commentary supplies a metaphor for this verse, omit the section entirely.
 6. **ལུང། is a standalone section.** Populated from attested scriptural quotations only. If no commentary adduces a quotation for this verse, omit the section entirely.
@@ -241,7 +262,7 @@ The བསྡུས་དོན། section is never drafted directly by the mode
 
 ### Stage 2 — Find the commentaries through transclusions
 
-5. For every file in `1-SOURCES/Commentaries/Transcluded/` (including `BCAC19_KS_bo.md`):
+5. For every file in `1-SOURCES/Commentaries/formated_commentary/` (including the KS file), applying the file-specific quirks listed under *How to locate a verse's commentary passage* (path form, NKW `I-` preamble, sparse KTB, per-file block IDs):
    - `grep -n "!\\[\\[.*#\\^<verse-id>\\]\\]"` to find the line where the verse is transcluded into that commentary.
    - Note that line number (`LINE_START`) and the line number of the next verse transclusion (`LINE_END`).
    - Inspect lines `LINE_START` to `LINE_END − 1`. If this span contains only transclusion lines and blank lines (no prose), check whether `LINE_END` is also a consecutive verse transclusion. If so, scan forward through all consecutive transclusion lines until reaching the first line of prose. Treat that prose block — up to the line before the next non-consecutive verse transclusion — as the commentary span for the target verse.
@@ -253,7 +274,7 @@ The བསྡུས་དོན། section is never drafted directly by the mode
 
 7. **ལེགས་སྦྱར།** — insert transclusion `![[1-SOURCES/Text/BCAV08_SH_sk.md#^<verse-id>]]`. No source link needed.
 8. **བོད་ཡིག** — insert transclusion `![[1-SOURCES/Translations/bo-བློ་ལྡན་ཤེས་རབ།.md#^<verse-id>]]`. No source link needed.
-9. **མཆན་འགྲེལ།** — from the `BCAC19_KS_bo.md` span only: reproduce Zhenga's interlinear gloss prose (root word → gloss pairs or continuous annotation); cite the block. If the span contains scriptural quotations introduced by "[scripture name] ལས།", skip them here — they belong in ལུང། (step 13).
+9. **མཆན་འགྲེལ།** — from the the KS file span only: reproduce Zhenga's interlinear gloss prose (root word → gloss pairs or continuous annotation); cite the block. If the span contains scriptural quotations introduced by "[scripture name] ལས།", skip them here — they belong in ལུང། (step 13).
 10. **དོན་འགྲེལ།** — one subsection per commentary in tier order, drawn from each commentary's verse span; Tibetan prose; every sentence cited. Add Divergences ⚑ if any.
 11. **སྒྲུང་འགྲེལ།** — from the verse spans: identify narratives across all commentaries; précis each in Tibetan; note the illustrating phrase; cite. Omit section entirely if no narrative found.
 12. **དཔེ།** — from the verse spans: collect metaphors and examples; state image → tenor → how the commentary develops it; cite. Omit if absent.

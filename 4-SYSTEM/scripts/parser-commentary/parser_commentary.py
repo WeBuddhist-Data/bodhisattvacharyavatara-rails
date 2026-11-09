@@ -23,8 +23,15 @@ from pathlib import Path
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
+
+def _stem_dir(stem: str) -> Path:
+    """Per-text output folder: output/<stem>/ (created on demand)."""
+    d = OUTPUT_DIR / stem
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
 YAML_PROPS_RE = re.compile(r"\A---\r?\n(.*?)\r?\n---\r?\n?", re.DOTALL)
-REF_RE = re.compile(r'(\^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)?)\s*$')
+REF_RE = re.compile(r'(\^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)\s*$')  # allows multi-level header IDs (^2-1-0), same as linter
 ROMAN_RE = re.compile(r'^[IVXLCDM]+$')
 VERSE_X_RE = re.compile(r'\d+[xX]\d+')
 TRANSCLUSION_RE = re.compile(r'^\s*!\[\[.*?#\^.*?\]\]\s*$')
@@ -38,7 +45,10 @@ _WYLIE_RE = re.compile(r"'[a-zA-Z]")
 # lines — e.g. a block ID `^I-13` ending one line and a `>` blockquote
 # marker starting the next — so the line boundary itself can fall inside
 # the marker.
-VERSE_ID_RE = re.compile(r'\^[A-Za-z0-9]+-[A-Za-z0-9]+>')
+VERSE_ID_RE = re.compile(r'\^[A-Za-z0-9]+-[A-Za-z0-9]+>?')
+
+# Leading markdown blockquote markers (`> `, `>> `) — stripped from edition content.
+BLOCKQUOTE_RE = re.compile(r'^\s*(?:>\s?)+')
 
 
 def _wylie_to_unicode(text, lang_tag):
@@ -158,8 +168,7 @@ def extract_text_input(lint_path):
     stem = lint_path.stem
     if stem.endswith(".lint"):
         stem = stem[:-len(".lint")]
-    out_path = OUTPUT_DIR / f"{stem}.text.json"
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = _stem_dir(stem) / f"{stem}.text.json"
     out_path.write_text(json.dumps(clean, ensure_ascii=False, indent=2), encoding="utf-8")
     return out_path
 
@@ -220,6 +229,7 @@ def _build_content_and_segmentation(blocks, doc_default):
                     ref_idx = text.rfind(ref)
                     if ref_idx != -1:
                         text = text[:ref_idx].rstrip()
+                text = BLOCKQUOTE_RE.sub("", text)
                 if not text:
                     continue
                 start = pos
@@ -227,6 +237,10 @@ def _build_content_and_segmentation(blocks, doc_default):
                 pos += len(text)
                 line_spans.append({"start": start, "end": start + len(text)})
             seg_type = _infer_segment_type(ref_no_caret, doc_default)
+            # A blockquote (`> …` lines) is a verse/quotation, whatever its ref says.
+            first_line = next((l for l in content_lines if l.strip()), "")
+            if first_line.lstrip().startswith(">"):
+                seg_type = "verse"
             seg_list.append({"lines": line_spans, "type": seg_type, "reference": ref_no_caret})
 
     return "".join(parts), seg_list, headings
@@ -322,8 +336,7 @@ def build_edition(source_path, lint_path):
     }
 
     stem = source_path.stem
-    out_path = OUTPUT_DIR / f"{stem}.edition.json"
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = _stem_dir(stem) / f"{stem}.edition.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     # `_headings` is handed to build_toc in memory and is deliberately absent
     # from the written payload — it is TOC input, not edition data.
@@ -402,8 +415,7 @@ def build_toc(source_path, edition_result):
     out = {"sections": sections}
 
     stem = source_path.stem
-    out_path = OUTPUT_DIR / f"{stem}.toc.json"
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = _stem_dir(stem) / f"{stem}.toc.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     return out_path, out
 
@@ -467,8 +479,7 @@ def build_alignment(source_path):
 
     out = {"alignments": alignments}
     stem = source_path.stem
-    out_path = OUTPUT_DIR / f"{stem}.alignment.json"
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = _stem_dir(stem) / f"{stem}.alignment.json"
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     return out_path, out
 
