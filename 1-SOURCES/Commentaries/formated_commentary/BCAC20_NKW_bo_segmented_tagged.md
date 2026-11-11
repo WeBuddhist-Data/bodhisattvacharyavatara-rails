@@ -11,9 +11,9 @@ source_description: Commentary to facilitate easy entry for beginners into the B
 category_id: JD5ULLPAV1cxg7RSb7L3q
 license: public
 source: "https://webuddhist.com/"
-root-text: "1-SOURCES\\Translations\\bo-བློ་ལྡན་ཤེས་རབ།.md"
+root_text: "1-SOURCES\\Translations\\bo-བློ་ལྡན་ཤེས་རབ།.md"
 bdrc_work_id:
-text_id:xUh43l7C9poHTxIE4fGcS
+text_id: xUh43l7C9poHTxIE4fGcS
 edition_id: Wd8Nu9q1fxVNiny5N1vwe
 toc_id: MUOIIuB8Uf4b89PxZda8N
 ---
