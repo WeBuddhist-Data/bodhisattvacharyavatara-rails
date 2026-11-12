@@ -364,3 +364,9 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 
 | Tibetan                        | Proposed                                                                                              | First seen | Status  |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------- | ---------- | ------- |
+| མ་རུངས་པའི་སེམས་ | unruly mind | Day 136 | pending |
+| དགེ་སྦྱོང་ | monastic | Day 136 | pending |
+| ལོག་འཚོ་ | wrong livelihood | Day 138 | pending |
+| ངོ་བསྟོད་ | flatter | Day 138 | pending |
+| ཁེ་བཟང་ | profit | Day 138 | pending |
+| རྙེད་པ་ | gains | Day 138 | pending |
