@@ -165,6 +165,8 @@ ordinal tables in `references/tibetan-numerals-and-ordinals.md`, convert the cha
 
 Double-check this phrase by hand — ordinal formation is irregular and easy to get wrong by guessing (see the worked examples in the reference file).
 
+**Placement rule — absolute.** The Section 2 content must ALWAYS begin with the citation sentence, prefixed by `དེ་རིང་གི་ཉམས་ལེན་ནི་`, i.e. the first words are `དེ་རིང་གི་ཉམས་ལེན་ནི་ལེའུ་…ཐོག་ལ་ཡིན།` (e.g. `དེ་རིང་གི་ཉམས་ལེན་ནི་ལེའུ་དྲུག་པའི་ཚིགས་བཅད་རེ་ལྔ་པ་ནས་རེ་བདུན་པ་བར་ཚིགས་བཅད་གསུམ་གྱི་ཐོག་ལ་ཡིན།`). The generated hook sentence(s) come AFTER it, never before. Do not rely on the generator to order this: ask it to write only the hook, then assemble `དེ་རིང་གི་ཉམས་ལེན་ནི་` + citation phrase + one space + hook yourself (mechanical assembly, not authorship). Verify the section's first words in the Phase 4 checklist.
+
 **Call `gemini_generate`.** Assemble a prompt that includes: the confirmed
 citation phrase; the exact verse text from Step 3; a one-line paraphrase-free summary of what the verse(s) are about drawn from the བསྡུས་དོན/གཙོ་གནད layers collected in Phase 1 (for the generator's own grounding, not for the reader); and these constraints, stated explicitly in the prompt:
 
@@ -331,6 +333,7 @@ Run this for every day produced, before considering it done:
 - [ ] Consistency check passed: the `Ch<C>-V<start>-<end>` in the filename matches the chapter/verse range computed from `Tibetan-schedule-corrected.md`.
 - [ ] All six section headings present in order, each `# [emoji] [Tibetan name]` exactly as specified (🪷 ☕️ 📖 💡 💧 📿), except Section 4 may be legitimately absent.
 - [ ] Section 1 and Section 5 are byte-identical to the fixed blocks in this file — no paraphrase, no reordering, no punctuation drift.
+- [ ] Section 2 BEGINS with `དེ་རིང་གི་ཉམས་ལེན་ནི་` + the citation phrase (citation sentence first, hook after) — never the reverse.
 - [ ] Section 2 is 1–2 sentences, states the citation phrase, does not explain verse meaning, and was produced by `gemini_generate` (not authored directly).
 - [ ] Section 2's non-citation sentence is specific to today's actual verses (a concrete image, question, or stake) — not a generic devotional closing that could be pasted onto any day.
 - [ ] Section 2's citation phrase double-checked by hand against the ordinal reference table — chapter and verse ordinals correct.
@@ -352,6 +355,7 @@ Run this for every day produced, before considering it done:
 ## Known failure modes
 
 - Writing Section 2/4/6 prose directly instead of calling `gemini_generate` — defeats the point of this skill's generation discipline.
+- Section 2 with the hook sentence placed before the citation phrase — the citation sentence must come first.
 - Section 2 closing on a generic devotional formula ("with joyful mind and great faith, please practice") instead of something specific to that day's verses — reads as filler and defeats the "make the reader want to engage with these particular verses" goal.
 - Guessing an ordinal instead of composing it from the decade-prefix table — 35th and 45th look similar but use different prefixes (སོ་ vs ཞེ་).
 - Padding Section 4 to reach the 300-syllable ceiling, or padding Section 6's ཉམས་ལེན་དངོས subsection toward 30 — both ceilings are meant to force concision, not to be hit exactly.
