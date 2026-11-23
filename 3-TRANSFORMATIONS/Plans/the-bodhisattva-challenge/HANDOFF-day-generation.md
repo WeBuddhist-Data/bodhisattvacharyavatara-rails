@@ -1,11 +1,11 @@
 # Handoff: generating English + Hindi day plans (Bodhisattva Challenge)
 
-First written 2026-10-02, last updated 2026-11-23 (after Day 140). Point a fresh session at this file, then say e.g. "create day 141". Read this whole file and the `dalai-lama-plan-translation` skill before starting.
+First written 2026-10-02, last updated 2026-11-23 (after Day 150). Point a fresh session at this file, then say e.g. "create day 151". Read this whole file and the `dalai-lama-plan-translation` skill before starting.
 
 ## Status
 
-- **Done through Day 140** (Chapter 6, verse 61), both `en/` and `hi/`. Chapter 5 (Days 74-116) is complete; Chapter 6 output folders are `en/Days/Chapter-6 D117-D170/` and `hi/Days/Chapter-6 D117-D170/` (verse block IDs `^6-N`, filenames `<n>-ch6-v<a>-<b>-eng.md` / `-hi.md`).
-- **Next: Day 141.** The Tibetan files for Day 141 onward (Day 141 to Day 365) exist but are empty (0 bytes), so nothing can be generated until the Tibetan day plans are written. Days 1-140 have Tibetan content.
+- **Done through Day 150** (Chapter 6, verse 87), both `en/` and `hi/`. Chapter 5 (Days 74-116) is complete; Chapter 6 output folders are `en/Days/Chapter-6 D117-D170/` and `hi/Days/Chapter-6 D117-D170/`.
+- **Next: Day 151.** Tibetan files were populated through at least Day 170 on 2026-11-23 (checked up to Day 200); later days were not re-checked. Run `wc -c` on each Tibetan file before generating; an empty file is a stop.
 - Chapter 6 term choices (approved 2026-10-27 with all other pending terms): ཁོང་ཁྲོ་ / ཁྲོ་བ་ = anger / क्रोध; ཞེ་སྡང་ = hatred / द्वेष; བཟོད་པ་ = patience / धैर्य; ཡིད་མི་བདེ་བ་ = unhappiness / मन का दुख; གཉེན་པོ་ = antidote / उपाय. Keep anger and hatred distinct.
 - Days 15-36 (Chapter 2) are older rails-authored files in a different style from 37+. Never touched or reconciled.
 - The user's request pattern is simply "create day N" or "N-M". If a day is skipped in the request, check whether it exists and ask once (Day 85 was skipped once; user said fill it).
@@ -81,7 +81,7 @@ Left as-is on purpose: Day 82 HI 5-22 "भलाई" for doing good (no meaning 
 ## Termbase state and open questions (as of 2026-11-23)
 
 - On 2026-10-27 the user approved ALL terms that were pending up to Day 133. They now sit in the termbase tables ("Approved terms" section, Persons, Scriptural sources, category labels). Reuse them; never re-log them.
-- Six terms from Days 134-140 are pending in both termbases: unruly mind (མ་རུངས་པའི་སེམས་, HI बेक़ाबू मन), monastic (དགེ་སྦྱོང་, HI संन्यासी), wrong livelihood (ལོག་འཚོ་, HI गलत जीविका), flatter (ངོ་བསྟོད་, HI चापलूसी करना), profit (ཁེ་བཟང་, HI मुनाफ़ा), gains (རྙེད་པ་, HI लाभ). Reuse these renderings.
+- Six terms from Days 134-140 are pending in both termbases: unruly mind (མ་རུངས་པའི་སེམས་, HI बेक़ाबू मन), monastic (དགེ་སྦྱོང་, HI संन्यासी), wrong livelihood (ལོག་འཚོ་, HI गलत जीविका), flatter (ངོ་བསྟོད་, HI चापलूसी करना), profit (ཁེ་བཟང་, HI मुनाफ़ा), gains (རྙེད་པ་, HI लाभ). Reuse these renderings. Eleven more from Days 141-149 are pending: faith (དད་པ་, श्रद्धा), being under the power of the afflictions (ཉོན་མོངས་པའི་གཞན་དབང་), ignorance (རྨོངས་པ་, HI मोह to match the Hindi verse source), those close to me (རྩ་ལག་, unclear), attachment (ཆགས་པ་, लगाव), eon (བསྐལ་པ་, कल्प), jealousy (ཕྲག་དོག་, ईर्ष्या), someone with bodhicitta (བྱང་ཆུབ་སེམས་པ་), gets ahead (ལམ་འགྲོ་རྒྱུག་ / ལམ་ལྷོང་), tight/relaxed (དོག་པོ་ / ལྷོད་པོ་, तंग/सहज), giver (སྦྱིན་བདག་, देने वाला).
 - Open questions the user has not decided (mention again only if relevant):
   - Day 66 category label "(Giving up anger)" / "(क्रोध को त्यागना)" vs the Chapter 6 rule that ཞེ་སྡང་ = hatred / द्वेष. Left unchanged.
   - Day 130 names differ between languages: "Truth Awakening" vs सत्य-बोधि, "Nalendra" vs नालंदा.
@@ -91,7 +91,9 @@ Left as-is on purpose: Day 82 HI 5-22 "भलाई" for doing good (no meaning 
 
 ## Source limits
 
-- **The Tibetan day files stop at Day 140.** Day 141 to Day 365 exist as 0-byte placeholder files in `Plans/Dalai Lama/`. Before generating any day, check `wc -c` on its Tibetan file. An empty file is a stop: tell the user the Tibetan plan has to be written first. Do not guess content. (This was discovered on 2026-11-12; an earlier answer that said the plan was ready to Day 365 counted files, not content.)
+- **Check Tibetan file sizes first.** Days 1-170 had content on 2026-11-23; later days may still be 0-byte placeholders. Run `wc -c` on a day's Tibetan file before generating. An empty file is a stop: tell the user the Tibetan plan has to be written first. Do not guess content. (An earlier answer said the plan was ready to Day 365 because it counted files, not content.)
+- **Commentary lead-in:** use "valuable"/कीमती only where the Tibetan has རིན་ཐང་ཅན (Days 134-140 did, Days 141-150 did not).
+- **Hindi glosses:** the first use of बोधिसत्व and बोधिचित्त in each Hindi file carries the bracket gloss. Check this before copying.
 - Folder map for the remaining chapters: Chapter 6 = D117-D170, Chapter 7 = D171-D201, Chapter 8 = D202-D274, Chapter 9 = D275-D341, Chapter 10 = D342-D365.
 
 ## How the user likes to work

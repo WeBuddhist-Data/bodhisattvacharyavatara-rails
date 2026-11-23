@@ -370,3 +370,14 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 | ངོ་བསྟོད་ | flatter | Day 138 | pending |
 | ཁེ་བཟང་ | profit | Day 138 | pending |
 | རྙེད་པ་ | gains | Day 138 | pending |
+| དད་པ་ | faith | Day 141 | pending |
+| ཉོན་མོངས་པའི་གཞན་དབང་ | being under the power of the afflictions | Day 141 | pending |
+| རྨོངས་པ་ | ignorance | Day 142 | pending |
+| རྩ་ལག་ | those close to me (the meaning of རྩ་ལག་ is unclear) | Day 142 | pending |
+| ཆགས་པ་ | attachment | Day 144 | pending |
+| བསྐལ་པ་ | eon | Day 144 | pending |
+| ཕྲག་དོག་ | jealousy | Day 146 | pending |
+| བྱང་ཆུབ་སེམས་པ་ | someone with bodhicitta | Day 147 | pending |
+| ལམ་འགྲོ་རྒྱུག་ / ལམ་ལྷོང་ | gets ahead (colloquial, meaning not fully certain) | Day 148 | pending |
+| དོག་པོ་ / ལྷོད་པོ་ | tight / relaxed | Day 148 | pending |
+| སྦྱིན་བདག་ | giver | Day 149 | pending |
