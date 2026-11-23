@@ -1,6 +1,6 @@
 # Handoff: generating English + Hindi day plans (Bodhisattva Challenge)
 
-Written 2026-10-02. Paste or point a fresh session at this file, then say e.g. "create day 91-95".
+First written 2026-10-02, last updated 2026-11-23 (after Day 140). Point a fresh session at this file, then say e.g. "create day 141". Read this whole file and the `dalai-lama-plan-translation` skill before starting.
 
 ## Status
 
@@ -36,7 +36,7 @@ Output sections: `## Today's Verse` / `## आज का श्लोक`, `## 1)
 - CEFR A2-B1: one idea per sentence, mostly under 20 words, active voice. No diacritics in body prose except italicised cited work titles (`_Bodhicaryāvatāra_`, `_बोधिचर्यावतार_`). Cited titles are always italicised.
 - Actual Practice is first person, future: "Today, I will..." / "आज मैं ... करूँगा". Commentary and Explanation use "we".
 - Fixed words (details in termbases): དགེ་བ་ "doing good"/"अच्छा काम" (never merit/पुण्य); བསོད་ནམས་ "merit"/"पुण्य"; སྡིག་པ་ "wrongdoing"/"बुरा काम" (never sin/पाप in prose); ཉོན་མོངས་ "the afflictions"/"मन के विकार" (never bare क्लेश in prose); ངན་སོང་ "the lower realms"/"बुरी गतियाँ"; ལེ་ལོ་ "laziness"/"आलस" (not आलस्य); བག་མེད་ "carelessness"/"लापरवाही".
-- Fixed practice-category labels exist for: Doing good, Avoiding wrongdoing, Taming the mind, Generosity Practice, Patience Practice. Everything else is in the pending table (see below). Reuse the pending rendering; do not re-log it as new.
+- All 15 practice-category labels are in the controlled table in each termbase (Doing good, Avoiding wrongdoing, Taming the mind, Generosity, Patience, Ethics, Diligence, Wisdom, Practice of remembering that nothing lasts, Recognizing the afflictions, Giving up anger, Not feeding the afflictions, Not giving up the effort, Welcoming hardship, Meditation). Use them exactly. A category not in the table is new: log it as pending and keep going.
 - Do not translate more than the Tibetan says. Do not add a mood, person, or a "goal/everything/caution" that is not there. Keep story beats and attributions exactly.
 - If the Tibetan file ends with a translator's note saying no scholarly commentary exists (Day 90 did), write a plain literal explanation with no invented teacher, story, or citation.
 
@@ -78,11 +78,35 @@ The plain-translation files are verbatim sources, so verses are normally never e
 
 Left as-is on purpose: Day 82 HI 5-22 "भलाई" for doing good (no meaning conflict). Someone should eventually fix these five in the two plain files.
 
-## Pending terms awaiting human approval
+## Termbase state and open questions (as of 2026-11-23)
 
-The Pending table in each termbase holds about 70 rows (names, texts, glosses, categories) since Day 38. Earlier running tallies given in chat (12/14/17/18) counted only recent additions and were wrong; trust the table. Practice categories needing approval: Ethics Practice, Diligence Practice, Wisdom Practice, Practice of remembering that nothing lasts, Recognizing the afflictions, Giving up anger, Not feeding the afflictions, Not giving up the effort, Welcoming hardship, Meditation Practice.
-Tentative identifications to check against a published source: Day 76 `འགྲོ་བ་རྣམ་འབྱེད་ཀྱི་མདོ` as "the Sutra Distinguishing Rebirths"; Day 78 `རྒྱལ་པོ་གཙུག་ན་རིན་པོ་ཆེ` as "King Manicuda"; Day 85 `བཤེས་ལེགས་ལས།` as the _Letter to a Friend_ (spelling differs from the established `བཤེས་སྤྲིང་` entry).
+- On 2026-10-27 the user approved ALL terms that were pending up to Day 133. They now sit in the termbase tables ("Approved terms" section, Persons, Scriptural sources, category labels). Reuse them; never re-log them.
+- Six terms from Days 134-140 are pending in both termbases: unruly mind (མ་རུངས་པའི་སེམས་, HI बेक़ाबू मन), monastic (དགེ་སྦྱོང་, HI संन्यासी), wrong livelihood (ལོག་འཚོ་, HI गलत जीविका), flatter (ངོ་བསྟོད་, HI चापलूसी करना), profit (ཁེ་བཟང་, HI मुनाफ़ा), gains (རྙེད་པ་, HI लाभ). Reuse these renderings.
+- Open questions the user has not decided (mention again only if relevant):
+  - Day 66 category label "(Giving up anger)" / "(क्रोध को त्यागना)" vs the Chapter 6 rule that ཞེ་སྡང་ = hatred / द्वेष. Left unchanged.
+  - Day 130 names differ between languages: "Truth Awakening" vs सत्य-बोधि, "Nalendra" vs नालंदा.
+  - Hindi category labels "(अच्छे कर्म करना)" / "(बुरे कर्म न करना)" still use कर्म although prose uses अच्छा काम / बुरा काम. The labels are controlled vocabulary, so use them as written.
+  - Some approved terms keep an "unclear" note (for example गྭ་རྒྱ་ལྦ་, ཕྱེ་མ་ལེབ, ཚོགས་འདུམས་པ, བློན་པོའི་གཅིག).
+- The `pending_terms:` lists in older day files still name terms that are now approved. The termbase rule clears them the next time each file is touched. Do not touch those files just for that.
+
+## Source limits
+
+- **The Tibetan day files stop at Day 140.** Day 141 to Day 365 exist as 0-byte placeholder files in `Plans/Dalai Lama/`. Before generating any day, check `wc -c` on its Tibetan file. An empty file is a stop: tell the user the Tibetan plan has to be written first. Do not guess content. (This was discovered on 2026-11-12; an earlier answer that said the plan was ready to Day 365 counted files, not content.)
+- Folder map for the remaining chapters: Chapter 6 = D117-D170, Chapter 7 = D171-D201, Chapter 8 = D202-D274, Chapter 9 = D275-D341, Chapter 10 = D342-D365.
+
+## How the user likes to work
+
+- No git commits. The user commits himself, and a vault backup process also commits on its own. Leave changes uncommitted and list what changed (new files, edited files).
+- Plain, simple explanations. Short final report. He often asks follow-up questions to check his understanding, so answer the question asked first.
+- If a day file already exists, do not overwrite it. Ask once. For Days 126-133 he chose "audit the existing files", and I fixed them in place.
+- When a batch is done, say which days were produced, the real audit findings and fixes, any upstream verse-source problems, and new pending terms.
+
+## Chapter 6 verse-source issues seen (left as is, disclose in the report)
+
+- EN 6-1: em-dash in the verse. HI 6-32: em-dash. EN 6-57 and HI 6-57: em-dash.
+- EN 6-48 says "my misdeeds greatly increase through patience", but the Tibetan day commentary (Day 135) says wrongdoing is purified, and HI 6-48 says पाप मिट जाएंगे. The two verse sources disagree. Not edited.
+- EN 6-55, 6-60, 6-61 use "misdeeds" and "good deeds"; HI 6-60 and 6-61 use पाप and पुण्य. These are verse-source wordings and stay as they are. Day prose still uses wrongdoing / doing good.
 
 ## Starter prompt for the new session
 
-> Read `3-TRANSFORMATIONS/Plans/the-bodhisattva-challenge/HANDOFF-day-generation.md` and the `dalai-lama-plan-translation` skill. Then create the English and Hindi plans for day 91-95 following that pipeline, including the adversarial audit.
+> Read `3-TRANSFORMATIONS/Plans/the-bodhisattva-challenge/HANDOFF-day-generation.md` and the `dalai-lama-plan-translation` skill. Then create the English and Hindi plans for day N-M (check first that the Tibetan files for those days are not empty), following that pipeline, including the adversarial audit. Do not commit anything.
