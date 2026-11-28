@@ -406,3 +406,23 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 | སེམས་ཅན་ | sentient beings | Day 160 | pending |
 | བསོད་ནམས་ཀྱི་ཞིང་ | field of merit | Day 160 | pending |
 | ཕ་རོལ་ཏུ་ཕྱིན་པ་ | the perfections | Day 160 | pending |
+| གུས་ཞབས་ | show respect | Day 161 | pending |
+| སྐུ་འདྲ་ | statue | Day 161 | pending |
+| ཕྱག་འཚལ་ | bow | Day 161 | pending |
+| བྱང་ཆུབ་ | awakening | Day 161 | pending |
+| ས་བོན་ | seed | Day 162 | pending |
+| རྣམ་མཁྱེན་ | omniscient | Day 162 | pending |
+| སྟོབས་ | powers (of a buddha) | Day 162 | pending |
+| མནར་མེད་ | the Avici hell | Day 163 | pending |
+| ཕོག་ཐུག་ | hurt (someone's feelings) | Day 163 | pending |
+| ང་རྒྱལ་ | pride | Day 164 | pending |
+| ཞབས་ཞུ་ | service | Day 164 | pending |
+| གཡོག་པོ་ | servant | Day 164 | pending |
+| དགོངས་སེལ་ཞུ་ | ask for forgiveness | Day 165 | pending |
+| འགྲོ་བ་ | beings | Day 165 | pending |
+| མགོན་པོ་ | protector | Day 166 | pending |
+| སུན་པོ་བཟོ་ | annoy | Day 167 | pending |
+| ཁྱད་གསོད་ | look down on | Day 168 | pending |
+| མཐོ་རིས་ | the higher realms | Day 169 | pending |
+| གོ་འཕང་ | state (of a buddha) | Day 169 | pending |
+| འཁོར་ལོས་སྒྱུར་བའི་རྒྱལ་པོ་ | universal monarch | Day 170 | pending |
