@@ -381,3 +381,48 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 | ལམ་འགྲོ་རྒྱུག་ / ལམ་ལྷོང་ | gets ahead (colloquial, meaning not fully certain) | Day 148 | pending |
 | དོག་པོ་ / ལྷོད་པོ་ | tight / relaxed | Day 148 | pending |
 | སྦྱིན་བདག་ | giver | Day 149 | pending |
+| བསྟོད་པ་ | praise | Day 151 | pending |
+| གྲགས་པ་ | fame | Day 151 | pending |
+| ལྕགས་ཀྱུ་ | hook (fishhook) | Day 151 | pending |
+| བཏང་སྙོམས་ | stay even-minded | Day 151 | pending |
+| སྙན་གྲགས་ | fame | Day 152 | pending |
+| མཁས་པ་ | the wise | Day 152 | pending |
+| སྐྱོན་བརྗོད་ | criticize | Day 153 | pending |
+| གཡེང་བ་ / རྣམ་གཡེང་ | distraction | Day 154 | pending |
+| སྐྱོ་བ་ | weariness (with samsara) | Day 154 | pending |
+| དགེ་བའི་རྩ་བ་ | roots of goodness | Day 154 | pending |
+| བཀུར་སྟི་ | respect | Day 155 | pending |
+| འཆིང་བ་ | bondage | Day 155 | pending |
+| བཀའ་དྲིན་ཆེ་ | very kind | Day 155 | pending |
+| སྒོ་ལྕགས་ | gate | Day 156 | pending |
+| དལ་གྱིས་བརྒྱབ་པ་ | gently closed (may be a misspelling of བྱིན་གྱིས་བརླབས་པ་, blessed) | Day 156 | pending |
+| སྤྲང་པོ་ / སློང་མོ་བ་ | beggar | Day 157 | pending |
+| མི་སྡུག་པོ་ | difficult person | Day 157 | pending |
+| གཏེར་ | treasure | Day 158 | pending |
+| དམ་པའི་ཆོས་ | the sacred Dharma | Day 159 | pending |
+| སྨན་པ་ | doctor | Day 159 | pending |
+| བཀའ་དྲིན་ཞུ་དཀའ་ | hard to feel grateful to | Day 159 | pending |
+| ཆོས་ཡང་དག་པར་སྡུད་པའི་མདོ་ | the _Dharmasangiti Sutra_ (Sanskrit title assumed) | Day 160 | pending |
+| སེམས་ཅན་ | sentient beings | Day 160 | pending |
+| བསོད་ནམས་ཀྱི་ཞིང་ | field of merit | Day 160 | pending |
+| ཕ་རོལ་ཏུ་ཕྱིན་པ་ | the perfections | Day 160 | pending |
+| གུས་ཞབས་ | show respect | Day 161 | pending |
+| སྐུ་འདྲ་ | statue | Day 161 | pending |
+| ཕྱག་འཚལ་ | bow | Day 161 | pending |
+| བྱང་ཆུབ་ | awakening | Day 161 | pending |
+| ས་བོན་ | seed | Day 162 | pending |
+| རྣམ་མཁྱེན་ | omniscient | Day 162 | pending |
+| སྟོབས་ | powers (of a buddha) | Day 162 | pending |
+| མནར་མེད་ | the Avici hell | Day 163 | pending |
+| ཕོག་ཐུག་ | hurt (someone's feelings) | Day 163 | pending |
+| ང་རྒྱལ་ | pride | Day 164 | pending |
+| ཞབས་ཞུ་ | service | Day 164 | pending |
+| གཡོག་པོ་ | servant | Day 164 | pending |
+| དགོངས་སེལ་ཞུ་ | ask for forgiveness | Day 165 | pending |
+| འགྲོ་བ་ | beings | Day 165 | pending |
+| མགོན་པོ་ | protector | Day 166 | pending |
+| སུན་པོ་བཟོ་ | annoy | Day 167 | pending |
+| ཁྱད་གསོད་ | look down on | Day 168 | pending |
+| མཐོ་རིས་ | the higher realms | Day 169 | pending |
+| གོ་འཕང་ | state (of a buddha) | Day 169 | pending |
+| འཁོར་ལོས་སྒྱུར་བའི་རྒྱལ་པོ་ | universal monarch | Day 170 | pending |
