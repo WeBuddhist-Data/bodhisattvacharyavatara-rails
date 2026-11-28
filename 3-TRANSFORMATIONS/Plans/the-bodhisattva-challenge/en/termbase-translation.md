@@ -381,3 +381,16 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 | ལམ་འགྲོ་རྒྱུག་ / ལམ་ལྷོང་ | gets ahead (colloquial, meaning not fully certain) | Day 148 | pending |
 | དོག་པོ་ / ལྷོད་པོ་ | tight / relaxed | Day 148 | pending |
 | སྦྱིན་བདག་ | giver | Day 149 | pending |
+| བསྟོད་པ་ | praise | Day 151 | pending |
+| གྲགས་པ་ | fame | Day 151 | pending |
+| ལྕགས་ཀྱུ་ | hook (fishhook) | Day 151 | pending |
+| བཏང་སྙོམས་ | stay even-minded | Day 151 | pending |
+| སྙན་གྲགས་ | fame | Day 152 | pending |
+| མཁས་པ་ | the wise | Day 152 | pending |
+| སྐྱོན་བརྗོད་ | criticize | Day 153 | pending |
+| གཡེང་བ་ / རྣམ་གཡེང་ | distraction | Day 154 | pending |
+| སྐྱོ་བ་ | weariness (with samsara) | Day 154 | pending |
+| དགེ་བའི་རྩ་བ་ | roots of goodness | Day 154 | pending |
+| བཀུར་སྟི་ | respect | Day 155 | pending |
+| འཆིང་བ་ | bondage | Day 155 | pending |
+| བཀའ་དྲིན་ཆེ་ | very kind | Day 155 | pending |
