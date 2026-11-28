@@ -394,3 +394,15 @@ All terms pending on 2026-10-27 were approved and promoted into the tables above
 | བཀུར་སྟི་ | respect | Day 155 | pending |
 | འཆིང་བ་ | bondage | Day 155 | pending |
 | བཀའ་དྲིན་ཆེ་ | very kind | Day 155 | pending |
+| སྒོ་ལྕགས་ | gate | Day 156 | pending |
+| དལ་གྱིས་བརྒྱབ་པ་ | gently closed (may be a misspelling of བྱིན་གྱིས་བརླབས་པ་, blessed) | Day 156 | pending |
+| སྤྲང་པོ་ / སློང་མོ་བ་ | beggar | Day 157 | pending |
+| མི་སྡུག་པོ་ | difficult person | Day 157 | pending |
+| གཏེར་ | treasure | Day 158 | pending |
+| དམ་པའི་ཆོས་ | the sacred Dharma | Day 159 | pending |
+| སྨན་པ་ | doctor | Day 159 | pending |
+| བཀའ་དྲིན་ཞུ་དཀའ་ | hard to feel grateful to | Day 159 | pending |
+| ཆོས་ཡང་དག་པར་སྡུད་པའི་མདོ་ | the _Dharmasangiti Sutra_ (Sanskrit title assumed) | Day 160 | pending |
+| སེམས་ཅན་ | sentient beings | Day 160 | pending |
+| བསོད་ནམས་ཀྱི་ཞིང་ | field of merit | Day 160 | pending |
+| ཕ་རོལ་ཏུ་ཕྱིན་པ་ | the perfections | Day 160 | pending |
